@@ -26,6 +26,7 @@ var _ adapter.Inbound = (*TUIC)(nil)
 type TUIC struct {
 	myInboundAdapter
 	server    *tuic.Server
+	users     []option.TUICUser
 	tlsConfig tls.ServerConfig
 }
 
@@ -63,6 +64,7 @@ func NewTUIC(ctx context.Context, router adapter.Router, logger log.ContextLogge
 			tag:           tag,
 			listenOptions: options.ListenOptions,
 		},
+		users: options.Users,
 	}
 	server, err := tuic.NewServer(tuic.ServerOptions{
 		Context:           ctx,
@@ -96,6 +98,30 @@ func (h *TUIC) newPacketConnection(ctx context.Context, conn N.PacketConn, metad
 	metadata.User, _ = auth.UserFromContext[string](ctx)
 	h.logger.InfoContext(ctx, "inbound packet connection to ", metadata.Destination)
 	return h.router.RoutePacketConnection(ctx, conn, metadata)
+}
+
+func (h *TUIC) AddUsers(users []option.TUICUser) error {
+	tmp := make([]option.TUICUser, 0, len(h.users)+len(users))
+	tmp = append(tmp, h.users...)
+	tmp = append(tmp, users...)
+	h.users = tmp
+	return nil
+}
+
+func (h *TUIC) DelUsers(names []string) error {
+	nameSet := make(map[string]bool)
+	for _, name := range names {
+		nameSet[name] = true
+	}
+
+	users := make([]option.TUICUser, 0, len(h.users))
+	for _, user := range h.users {
+		if _, ok := nameSet[user.Name]; !ok {
+			users = append(users, user)
+		}
+	}
+	h.users = users
+	return nil
 }
 
 func (h *TUIC) Start() error {
