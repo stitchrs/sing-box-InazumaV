@@ -5,6 +5,7 @@ import (
 	"context"
 	"crypto/tls"
 	"encoding/binary"
+	"github.com/inazumav/sing-box/option"
 	"io"
 	"net"
 	"runtime"
@@ -182,6 +183,19 @@ type serverSession struct {
 	authUser   *User
 	udpAccess  sync.RWMutex
 	udpConnMap map[uint16]*udpPacketConn
+}
+
+func (s *Server) UpdateUsers(userList []option.TUICUser) {
+	userMap := map[uuid.UUID]User{}
+	for _, userName := range userList {
+		userID := uuid.FromStringOrNil(userName.UUID)
+		userMap[userID] = User{
+			Name:     userID.String(),
+			UUID:     userID,
+			Password: "tuic",
+		}
+	}
+	s.userMap = userMap
 }
 
 func (s *serverSession) handle() {

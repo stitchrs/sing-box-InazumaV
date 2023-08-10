@@ -104,6 +104,7 @@ func (h *TUIC) AddUsers(users []option.TUICUser) error {
 	tmp := make([]option.TUICUser, 0, len(h.users)+len(users))
 	tmp = append(tmp, h.users...)
 	tmp = append(tmp, users...)
+	h.server.UpdateUsers(tmp)
 	h.users = tmp
 	return nil
 }
@@ -120,7 +121,7 @@ func (h *TUIC) DelUsers(names []string) error {
 			users = append(users, user)
 		}
 	}
-	h.users = users
+	h.server.UpdateUsers(users)
 	return nil
 }
 
