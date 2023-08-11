@@ -3,6 +3,7 @@ package inbound
 import (
 	"context"
 	"net"
+	"time"
 
 	"github.com/inazumav/sing-box/adapter"
 	"github.com/inazumav/sing-box/common/proxyproto"
@@ -40,6 +41,15 @@ func (a *myInboundAdapter) ListenTCP() (net.Listener, error) {
 	return tcpListener, err
 }
 
+type sleepCloseConn struct {
+	net.Conn
+}
+
+func (s *sleepCloseConn) Close() error {
+	time.Sleep(2 * time.Second)
+	return s.Conn.Close()
+}
+
 func (a *myInboundAdapter) loopTCPIn() {
 	tcpListener := a.tcpListener
 	for {
@@ -58,7 +68,7 @@ func (a *myInboundAdapter) loopTCPIn() {
 			a.logger.Error("serve error: ", err)
 			continue
 		}
-		go a.injectTCP(conn, adapter.InboundContext{})
+		go a.injectTCP(&sleepCloseConn{conn}, adapter.InboundContext{})
 	}
 }
 
