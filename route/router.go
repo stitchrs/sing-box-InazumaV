@@ -640,6 +640,7 @@ func (r *Router) RouteConnection(ctx context.Context, conn net.Conn, metadata ad
 		if !loaded {
 			return E.New("missing fakeip context")
 		}
+		metadata.OriginDestination = metadata.Destination
 		metadata.Destination = M.Socksaddr{
 			Fqdn: domain,
 			Port: metadata.Destination.Port,
@@ -757,6 +758,7 @@ func (r *Router) RoutePacketConnection(ctx context.Context, conn N.PacketConn, m
 			return E.New("missing fakeip context")
 		}
 		originAddress = metadata.Destination
+		metadata.OriginDestination = metadata.Destination
 		metadata.Destination = M.Socksaddr{
 			Fqdn: domain,
 			Port: metadata.Destination.Port,
