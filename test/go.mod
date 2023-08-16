@@ -1,6 +1,6 @@
 module test
 
-go 1.18
+go 1.20
 
 replace github.com/inazumav/sing-box => ../
 
@@ -70,7 +70,7 @@ require (
 	github.com/sagernet/sing-tun v0.1.12-0.20230808120247-47ab78d303db // indirect
 	github.com/sagernet/sing-vmess v0.1.7 // indirect
 	github.com/sagernet/smux v0.0.0-20230312102458-337ec2a5af37 // indirect
-	github.com/sagernet/tfo-go v0.0.0-20230303015439-ffcfd8c41cf9 // indirect
+	github.com/sagernet/tfo-go v0.0.0-20230816093905-5a5c285d44a6 // indirect
 	github.com/sagernet/utls v0.0.0-20230309024959-6732c2ab36f2 // indirect
 	github.com/sagernet/websocket v0.0.0-20220913015213-615516348b4e // indirect
 	github.com/scjalliance/comshim v0.0.0-20230315213746-5e51f40bd3b9 // indirect
