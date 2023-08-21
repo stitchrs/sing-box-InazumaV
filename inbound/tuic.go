@@ -126,6 +126,12 @@ func (h *TUIC) DelUsers(names []string) error {
 }
 
 func (h *TUIC) Start() error {
+	if h.tlsConfig != nil {
+		err := h.tlsConfig.Start()
+		if err != nil {
+			return err
+		}
+	}
 	packetConn, err := h.myInboundAdapter.ListenUDP()
 	if err != nil {
 		return err

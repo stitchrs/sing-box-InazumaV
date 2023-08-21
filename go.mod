@@ -13,28 +13,32 @@ require (
 	github.com/go-chi/cors v1.2.1
 	github.com/go-chi/render v1.0.3
 	github.com/gofrs/uuid/v5 v5.0.0
-	github.com/insomniacslk/dhcp v0.0.0-20230612134759-b20c9ba983df
+	github.com/insomniacslk/dhcp v0.0.0-20230731140434-0f9eb93a696c
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/mholt/acmez v1.2.0
 	github.com/miekg/dns v1.1.55
 	github.com/ooni/go-libtor v1.1.8
-	github.com/oschwald/maxminddb-golang v1.11.0
+	github.com/oschwald/maxminddb-golang v1.12.0
 	github.com/pires/go-proxyproto v0.7.0
 	github.com/sagernet/cloudflare-tls v0.0.0-20221031050923-d70792f4c3a0
-	github.com/sagernet/quic-go v0.0.0-20230809023643-d720ed35ac2b
+	github.com/sagernet/gomobile v0.0.0-20230728014906-3de089147f59
+	github.com/sagernet/gvisor v0.0.0-20230627031050-1ab0276e0dd2
+	github.com/sagernet/quic-go v0.0.0-20230821100820-d38697ecdbb0
 	github.com/sagernet/reality v0.0.0-20230406110435-ee17307e7691
-	github.com/sagernet/sing v0.2.10-0.20230807080248-4db0062caa0a
-	github.com/sagernet/sing-dns v0.1.8
-	github.com/sagernet/sing-mux v0.1.2
+	github.com/sagernet/sing v0.2.10-0.20230821073500-620f3a3b882d
+	github.com/sagernet/sing-dns v0.1.9-0.20230731012726-ad50da89b659
+	github.com/sagernet/sing-mux v0.1.3-0.20230811111955-dc1639b5204c
 	github.com/sagernet/sing-shadowsocks v0.2.4
 	github.com/sagernet/sing-shadowsocks2 v0.1.3
 	github.com/sagernet/sing-shadowtls v0.1.4
-	github.com/sagernet/sing-tun v0.1.12-0.20230808120247-47ab78d303db
+	github.com/sagernet/sing-tun v0.1.12-0.20230821065522-7545dc2d5641
 	github.com/sagernet/sing-vmess v0.1.7
 	github.com/sagernet/smux v0.0.0-20230312102458-337ec2a5af37
 	github.com/sagernet/tfo-go v0.0.0-20230816093905-5a5c285d44a6
 	github.com/sagernet/utls v0.0.0-20230309024959-6732c2ab36f2
 	github.com/sagernet/websocket v0.0.0-20220913015213-615516348b4e
+	github.com/sagernet/wireguard-go v0.0.0-20230807125731-5d4a7ef2dc5f
+	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.8.4
 	go.etcd.io/bbolt v1.3.7
 	go.uber.org/zap v1.25.0
@@ -43,6 +47,7 @@ require (
 	golang.org/x/exp v0.0.0-20230626212559-97b1e661b5df
 	golang.org/x/net v0.14.0
 	golang.org/x/sys v0.11.0
+	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20230429144221-925a1e7659e6
 	google.golang.org/grpc v1.57.0
 	google.golang.org/protobuf v1.31.0
 )
@@ -55,13 +60,14 @@ require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/cloudflare/circl v1.2.1-0.20221019164342-6ab4dfed8f3c // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/go-ole/go-ole v1.2.6 // indirect
+	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
 	github.com/golang/mock v1.6.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/btree v1.1.2 // indirect
 	github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/josharian/native v1.1.0 // indirect
 	github.com/klauspost/compress v1.15.15 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.5 // indirect
@@ -73,9 +79,9 @@ require (
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/quic-go/qtls-go1-20 v0.3.1 // indirect
 	github.com/sagernet/go-tun2socks v1.16.12-0.20220818015926-16cb67876a61 // indirect
-	github.com/sagernet/gvisor v0.0.0-20230627031050-1ab0276e0dd2 // indirect
 	github.com/sagernet/netlink v0.0.0-20220905062125-8043b4a9aa97 // indirect
 	github.com/scjalliance/comshim v0.0.0-20230315213746-5e51f40bd3b9 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/u-root/uio v0.0.0-20230220225925-ffce2a382923 // indirect
 	github.com/vishvananda/netns v0.0.0-20211101163701-50045581ed74 // indirect
 	github.com/zeebo/blake3 v0.2.3 // indirect
